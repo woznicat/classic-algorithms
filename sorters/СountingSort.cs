@@ -1,7 +1,10 @@
-﻿namespace SortingAlgorithms
+﻿using BenchmarkDotNet.Attributes;
+
+namespace SortingAlgorithms
 {
     public static class СountingSort
     {
+        [Benchmark]
         public static void СountingSortAsc(this int[] array)
         {
             if (array.Length <= 1)

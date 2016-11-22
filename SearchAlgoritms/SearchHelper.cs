@@ -38,13 +38,13 @@ namespace SearchAlgorithms
             return array;
         }
 
-        public static int[] GetSequenceRandomArrayWithValue(int value, int arrayLength = 100, int minValue = 0, int maxValue = 100, bool uniq = true)
-        {
-            var array = GetRandomArrayWithValue(value, arrayLength, minValue, maxValue, uniq);
-            array.QuickSortAsc();
+        //public static int[] GetSequenceRandomArrayWithValue(int value, int arrayLength = 100, int minValue = 0, int maxValue = 100, bool uniq = true)
+        //{
+        //    var array = GetRandomArrayWithValue(value, arrayLength, minValue, maxValue, uniq);
+        //    array.QuickSortAsc();
 
-            return array;
-        }
+        //    return array;
+        //}
 
 
         private static bool IsHasValue(int[] array, int value)
