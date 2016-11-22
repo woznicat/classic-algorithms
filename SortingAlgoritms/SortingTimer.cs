@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace SortingAlgorithms
 {
@@ -6,13 +7,18 @@ namespace SortingAlgorithms
     {
         public static void Go(Action<int[]> sort, int[] array, string displayName)
         {
-            Console.WriteLine("{0} ({1} elements)", displayName, array.Length);
-            using (new Timer())
-            {
-                sort(array);
-            }
+            Stopwatch _stopwatch = new Stopwatch();
+            _stopwatch.Start();
 
-            Console.WriteLine("---------------------------");
+            sort(array);
+
+            _stopwatch.Stop();
+
+            TimeSpan ts = _stopwatch.Elapsed;
+
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+
+            Console.WriteLine("{2} - {0} ({1} elements)", displayName, array.Length, elapsedTime);
         }
     }
 }

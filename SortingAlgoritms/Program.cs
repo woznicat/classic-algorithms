@@ -9,7 +9,7 @@ namespace SortingAlgorithms
             int[] array = SortingHelper.GetRandomArray(10000);
 
             //Distribution
-            SortingTimer.Go(ar => ar.СountingSortAsc(), SortingHelper.GetRandomArray(1000, 0, 255), "Сounting Sort");
+            SortingTimer.Go(ar => ar.СountingSortAsc(), SortingHelper.GetRandomArray(1000, 0, 255), "Counting Sort");
             SortingTimer.Go(ar => ar.BucketSortAsc(), SortingHelper.GetRandomArray(1000, 0, 255), "Bucket Sort");
 
             //Exchange 
