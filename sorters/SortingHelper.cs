@@ -6,6 +6,8 @@ namespace SortingAlgorithms
     public static class SortingHelper
     {
         public static TraceSwitch appSwitch = new TraceSwitch("mySwitch", "Switch in config file");
+        public static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public static bool IsSorted(this int[] array)
         {
             for (var i = 0; i < array.Length - 1; i++)

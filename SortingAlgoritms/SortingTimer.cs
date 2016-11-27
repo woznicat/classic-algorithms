@@ -9,7 +9,7 @@ namespace SortingAlgorithms
         {
             Stopwatch _stopwatch = new Stopwatch();
             _stopwatch.Start();
-            Trace.TraceInformation("Start sorting: {0}", displayName);
+            SortingHelper.log.InfoFormat("Start sorting: {0}", displayName);
             sort(array);
 
             _stopwatch.Stop();
@@ -18,7 +18,7 @@ namespace SortingAlgorithms
 
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-            Trace.TraceInformation("End sorting:{0} - {2} ({1} elements)", displayName, array.Length, elapsedTime);
+            SortingHelper.log.InfoFormat("End sorting:{0} - {2} ({1} elements)", displayName, array.Length, elapsedTime);
         }
     }
 }

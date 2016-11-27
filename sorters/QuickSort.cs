@@ -9,15 +9,14 @@ namespace SortingAlgorithms
 
         public static void QuickSortAsc(this int[] array)
         {
-            Trace.TraceInformation("{0} - entering main method", sortname);
+            SortingHelper.log.InfoFormat("{0} - entering main method", sortname);
             if (array.Length <= 1)
             {
-                Trace.WriteLineIf(SortingHelper.appSwitch.Level == TraceLevel.Verbose, String.Format("{0} - no elements to sort", sortname));
+                SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - no elements to sort", sortname), null);
                 return;
             }
-
             QuickSortTemp(array, 0, array.Length - 1);
-            Trace.TraceInformation("{0} - leavig main method", sortname);
+            SortingHelper.log.InfoFormat("{0} - leavig main method", sortname);
         }
 
         private static void QuickSortTemp(int[] collection, int leftIndex, int rightIndex)
@@ -25,7 +24,7 @@ namespace SortingAlgorithms
             var i = leftIndex;
             var j = rightIndex;
             var separateItem = collection[((leftIndex + rightIndex) / 2)];
-            Trace.WriteLineIf(SortingHelper.appSwitch.Level == TraceLevel.Verbose, String.Format("{0} - dividing collection {1} / {2} = {3}", sortname, leftIndex, rightIndex, separateItem));
+            SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - dividing collection {1} / {2} = {3}", sortname, leftIndex, rightIndex, separateItem), null);
             do
             {
                 while (collection[i] < separateItem)
@@ -51,13 +50,13 @@ namespace SortingAlgorithms
 
             if (leftIndex < j)
             {
-                Trace.WriteLineIf(SortingHelper.appSwitch.Level == TraceLevel.Verbose, String.Format("{0} - must go deeper left", sortname));
+                SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - must go deeper left", sortname), null);
                 QuickSortTemp(collection, leftIndex, j);
             }
 
             if (i < rightIndex)
             {
-                Trace.WriteLineIf(SortingHelper.appSwitch.Level == TraceLevel.Verbose, String.Format("{0} - must go deeper right", sortname));
+                SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - must go deeper right", sortname), null);
                 QuickSortTemp(collection, i, rightIndex);
             }
         }

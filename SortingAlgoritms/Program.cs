@@ -7,12 +7,13 @@ namespace SortingAlgorithms
     {
         private static void Main()
         {
+            log4net.Config.XmlConfigurator.Configure();
             //var summary = BenchmarkRunner.Run<СountingSortAsc>();
             for (int i = 0; i < 1; i++)
             {
                 NormalExec();
             }
-            Trace.TraceInformation("\n-----END-----");
+            SortingHelper.log.Info("\n-----END-----");
             Console.Read();
         }
 
@@ -29,7 +30,7 @@ namespace SortingAlgorithms
 
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-            Trace.TraceInformation("Elapsed {0}\r\n", elapsedTime);
+            SortingHelper.log.InfoFormat("Elapsed {0}\r\n", elapsedTime);
         }
     }
 }
