@@ -1,4 +1,4 @@
-﻿using System;
+﻿using sorters;
 
 namespace SortingAlgorithms
 {
@@ -8,17 +8,17 @@ namespace SortingAlgorithms
 
         public static void СountingSortAsc(this int[] array)
         {
-            SortingHelper.log.InfoFormat("{0} - entering main method", sortname);
+            SortEventSource.Log.MethodCallEnter(sortname);
             if (array.Length <= 1)
             {
-                SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - no elements to sort", sortname), null);
+                СountingSortEventSource.Log.NoElementsToSort();
                 return;
             }
 
             int maxValue = array[0];
             int minValue = array[0];
 
-            SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - estimating max and min element loop", sortname), null);
+            СountingSortEventSource.Log.EstimateBoundaries();
             for (var i = 0; i < array.Length - 1; i++)
             {
                 if (array[i + 1] > maxValue)
@@ -30,10 +30,11 @@ namespace SortingAlgorithms
                     minValue = array[i + 1];
                 }
             }
-            SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - minValue:{1}, maxValue:{2}", sortname, minValue, maxValue), null);
+
+            СountingSortEventSource.Log.CalculatedBoudaries(minValue, maxValue);
             var countsArray = new int[maxValue - minValue + 1];
 
-            SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - setting element by index", sortname), null);
+            СountingSortEventSource.Log.SettingElementByIndex();
             foreach (int item in array)
             {
                 countsArray[item - minValue]++;
@@ -41,7 +42,7 @@ namespace SortingAlgorithms
 
             var currentIndex = 0;
 
-            SortingHelper.log.Logger.Log(null, log4net.Core.Level.Verbose, String.Format("{0} - final sort", sortname), null);
+            СountingSortEventSource.Log.FinalSort();
             for (var i = 0; i < countsArray.Length; i++)
             {
                 for (var j = 0; j < countsArray[i]; j++)
@@ -49,7 +50,7 @@ namespace SortingAlgorithms
                     array[currentIndex++] = i + minValue;
                 }
             }
-            SortingHelper.log.InfoFormat("{0} - leavig main method", sortname);
+            SortEventSource.Log.MethodCallEnter(sortname);
         }
     }
 }

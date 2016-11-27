@@ -145,8 +145,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSort.cs" />
+    <Compile Include="QuickSortEventSource.cs" />
+    <Compile Include="SortEventSource.cs" />
     <Compile Include="SortingHelper.cs" />
     <Compile Include="СountingSort.cs" />
+    <Compile Include="СountingSortEventSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

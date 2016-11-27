@@ -1,20 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
+using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
+using sorters;
 
 namespace SortingAlgorithms
 {
+    //https://msdn.microsoft.com/pl-pl/library/dn775006.aspx ETW images
+    // https://github.com/mspnp/semantic-logging strona projektu
+    // dokument https://msdn.microsoft.com/pl-pl/library/dn775006.aspx  https://msdn.microsoft.com/en-us/library/dd673617.aspx
     internal class Program
     {
         private static void Main()
         {
-            log4net.Config.XmlConfigurator.Configure();
+            var listener = new ObservableEventListener();
+            listener.LogToConsole();
+            listener.EnableEvents(PerfEventSource.Log, EventLevel.LogAlways);
+            listener.EnableEvents(SortEventSource.Log, EventLevel.Informational);
+            listener.EnableEvents(СountingSortEventSource.Log, EventLevel.Informational);
+            listener.EnableEvents(QuickSortEventSource.Log, EventLevel.Informational);
+
+            //log4net.Config.XmlConfigurator.Configure();
             //var summary = BenchmarkRunner.Run<СountingSortAsc>();
             for (int i = 0; i < 1; i++)
             {
                 NormalExec();
             }
-            SortingHelper.log.Info("\n-----END-----");
+            //SortingHelper.log.Info("\n-----END-----");
             Console.Read();
+            listener.Dispose();
         }
 
         private static void NormalExec()
@@ -30,7 +45,7 @@ namespace SortingAlgorithms
 
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-            SortingHelper.log.InfoFormat("Elapsed {0}\r\n", elapsedTime);
+            PerfEventSource.Log.SummaryExecution(elapsedTime);
         }
     }
 }
