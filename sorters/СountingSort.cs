@@ -11,14 +11,14 @@ namespace SortingAlgorithms
             Console.WriteLine("{0} - entering main method", sortname);
             if (array.Length <= 1)
             {
-                //Console.WriteLine("{0} - no elements to sort", sortname);
+                Console.WriteLine("{0} - no elements to sort", sortname);
                 return;
             }
 
             int maxValue = array[0];
             int minValue = array[0];
 
-            //Console.WriteLine("{0} - estimating max and min element loop", sortname);
+            Console.WriteLine("{0} - estimating max and min element loop", sortname);
             for (var i = 0; i < array.Length - 1; i++)
             {
                 if (array[i + 1] > maxValue)
@@ -30,10 +30,10 @@ namespace SortingAlgorithms
                     minValue = array[i + 1];
                 }
             }
-            //Console.WriteLine("{0} - minValue:{1}, maxValue:{2}", sortname, minValue, maxValue);
+            Console.WriteLine("{0} - minValue:{1}, maxValue:{2}", sortname, minValue, maxValue);
             var countsArray = new int[maxValue - minValue + 1];
 
-            //Console.WriteLine("{0} - setting element by index", sortname);
+            Console.WriteLine("{0} - setting element by index", sortname);
             foreach (int item in array)
             {
                 countsArray[item - minValue]++;
@@ -41,7 +41,7 @@ namespace SortingAlgorithms
 
             var currentIndex = 0;
 
-            //Console.WriteLine("{0} - final sort", sortname);
+            Console.WriteLine("{0} - final sort", sortname);
             for (var i = 0; i < countsArray.Length; i++)
             {
                 for (var j = 0; j < countsArray[i]; j++)

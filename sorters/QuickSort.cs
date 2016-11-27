@@ -4,13 +4,14 @@ namespace SortingAlgorithms
 {
     public static class QuickSort
     {
-        const string sortname = "QuickSort";
+        private const string sortname = "QuickSort";
+
         public static void QuickSortAsc(this int[] array)
         {
             Console.WriteLine("{0} - entering main method", sortname);
             if (array.Length <= 1)
             {
-                //Console.WriteLine("{0} - no elements to sort", sortname);
+                Console.WriteLine("{0} - no elements to sort", sortname);
                 return;
             }
 
@@ -23,7 +24,7 @@ namespace SortingAlgorithms
             var i = leftIndex;
             var j = rightIndex;
             var separateItem = collection[((leftIndex + rightIndex) / 2)];
-            //Console.WriteLine("{0} - dividing collection {1} / {2} = {3}", sortname, leftIndex, rightIndex, separateItem);
+            Console.WriteLine("{0} - dividing collection {1} / {2} = {3}", sortname, leftIndex, rightIndex, separateItem);
             do
             {
                 while (collection[i] < separateItem)
@@ -45,21 +46,19 @@ namespace SortingAlgorithms
 
                     i++; j--;
                 }
-
             } while (i < j);
 
             if (leftIndex < j)
             {
-                //Console.WriteLine("{0} - must go deeper left", sortname);
+                Console.WriteLine("{0} - must go deeper left", sortname);
                 QuickSortTemp(collection, leftIndex, j);
             }
 
             if (i < rightIndex)
             {
-               //Console.WriteLine("{0} - must go deeper right", sortname);
+                Console.WriteLine("{0} - must go deeper right", sortname);
                 QuickSortTemp(collection, i, rightIndex);
             }
         }
-
     }
 }
