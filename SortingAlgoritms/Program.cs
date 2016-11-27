@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
+using Microsoft.Practices.EnterpriseLibrary.SemanticLogging.Formatters;
 using sorters;
 
 namespace SortingAlgorithms
@@ -15,11 +15,12 @@ namespace SortingAlgorithms
         private static void Main()
         {
             var listener = new ObservableEventListener();
+            //listener.LogToConsole(formatter: new TextFormatter(), colorMapper: new DefaultConsoleColorMapper());
             listener.LogToConsole();
             listener.EnableEvents(PerfEventSource.Log, EventLevel.LogAlways);
             listener.EnableEvents(SortEventSource.Log, EventLevel.Informational);
-            listener.EnableEvents(СountingSortEventSource.Log, EventLevel.Informational);
-            listener.EnableEvents(QuickSortEventSource.Log, EventLevel.Informational);
+            listener.EnableEvents(СountingSortEventSource.Log, EventLevel.Verbose);
+            listener.EnableEvents(QuickSortEventSource.Log, EventLevel.Verbose);
 
             //log4net.Config.XmlConfigurator.Configure();
             //var summary = BenchmarkRunner.Run<СountingSortAsc>();
