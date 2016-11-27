@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace SortingAlgorithms
 {
     public static class SortingHelper
     {
+        public static TraceSwitch appSwitch = new TraceSwitch("mySwitch", "Switch in config file");
         public static bool IsSorted(this int[] array)
         {
             for (var i = 0; i < array.Length - 1; i++)

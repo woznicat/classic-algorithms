@@ -12,7 +12,7 @@ namespace SortingAlgorithms
             {
                 NormalExec();
             }
-            Console.WriteLine("\n-----END-----");
+            Trace.TraceInformation("\n-----END-----");
             Console.Read();
         }
 
@@ -29,7 +29,7 @@ namespace SortingAlgorithms
 
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-            Console.WriteLine("Elapsed {0}\r\n", elapsedTime);
+            Trace.TraceInformation("Elapsed {0}\r\n", elapsedTime);
         }
     }
 }
