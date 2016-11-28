@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "Sortin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sorters", "sorters\sorters.csproj", "{7CC5991D-E53A-43AF-B8FD-95C3DC3B4EA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETWListener", "ETWListener\ETWListener.csproj", "{F8521312-C476-4911-B177-FAD15ECBD34C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEventListener", "ConsoleEventListener\ConsoleEventListener.csproj", "{ADBD62ED-E79A-4063-8877-54CE3A976900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7CC5991D-E53A-43AF-B8FD-95C3DC3B4EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CC5991D-E53A-43AF-B8FD-95C3DC3B4EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CC5991D-E53A-43AF-B8FD-95C3DC3B4EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8521312-C476-4911-B177-FAD15ECBD34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8521312-C476-4911-B177-FAD15ECBD34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8521312-C476-4911-B177-FAD15ECBD34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8521312-C476-4911-B177-FAD15ECBD34C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBD62ED-E79A-4063-8877-54CE3A976900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBD62ED-E79A-4063-8877-54CE3A976900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBD62ED-E79A-4063-8877-54CE3A976900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBD62ED-E79A-4063-8877-54CE3A976900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
